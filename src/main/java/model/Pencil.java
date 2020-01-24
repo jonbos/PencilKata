@@ -6,4 +6,8 @@ public class Pencil {
 		// TODO Auto-generated constructor stub
 	}
 
+	public void write(Paper paper, String text) {
+		paper.setText(text);
+	}
+
 }

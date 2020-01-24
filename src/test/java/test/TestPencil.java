@@ -8,14 +8,15 @@ import org.junit.Test;
 
 public class TestPencil {
 	Pencil pencil = new Pencil();
+	Paper paper = new Paper();
 
 	@Before
 	public void setUp() throws Exception {
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void pencilShouldWriteTextToPaper() {
+		pencil.write(paper, "test");
+		assertEquals(paper.getText(), "test");
 	}
-
 }
