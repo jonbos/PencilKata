@@ -31,6 +31,8 @@ public class Pencil {
 		}
 		if (Character.isUpperCase(c)){
 			pointDurability-=2;
+		} else if (Character.isWhitespace(c)) {
+			return;
 		} else {
 			pointDurability -= 1;
 		}

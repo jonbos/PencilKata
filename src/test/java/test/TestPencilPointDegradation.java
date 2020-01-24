@@ -41,8 +41,19 @@ public class TestPencilPointDegradation {
 		pencil.write(paper, "A");
 		assertEquals(0, pencil.getPointDurability());
 	}
-
-	
-
+	@Test
+	public void pencilShouldDegradeBySumOfCharsInString(){
+		pencil.setPointDurability(5);
+		pencil.write(paper, "Test");
+		assertEquals(0, pencil.getPointDurability());
+		pencil.setPointDurability(4);
+		pencil.write(paper, "test");
+		assertEquals(0, pencil.getPointDurability());
+	}
+	@Test
+	public void pencilShouldNotDegradeWhenWritingWhitespace(){
+		pencil.setPointDurability(1);
+		pencil.write(paper, " 	");
+		assertEquals(1, pencil.getPointDurability());
+	}
 }
-
