@@ -23,6 +23,11 @@ public class Pencil {
 			paper.setText(StringUtils.repeat(" ", text.length()));
 		}
 		else{
+			if (Character.isUpperCase(text.charAt(0))){
+				pointDurability-=2;
+			} else {
+				pointDurability -= 1;
+			}
 			paper.setText(paper.getText() + text);
 		}
 	}

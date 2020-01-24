@@ -28,5 +28,21 @@ public class TestPencilPointDegradation {
 		pencil.write(paper, "test");
 		assertEquals(paper.getText(), "    ");
 	}
+
+	@Test
+	public void pencilShouldDegradeByOneWhenWritingLowercaseCharacter(){
+		pencil.setPointDurability(1);
+		pencil.write(paper, "a");
+		assertEquals(0, pencil.getPointDurability());
+	}
+	@Test
+	public void pencilShouldDegradeByTwoWhenWritingUppercaseCharacter(){
+		pencil.setPointDurability(2);
+		pencil.write(paper, "A");
+		assertEquals(0, pencil.getPointDurability());
+	}
+
+	
+
 }
 
