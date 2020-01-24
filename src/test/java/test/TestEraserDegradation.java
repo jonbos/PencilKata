@@ -22,4 +22,13 @@ public class TestEraserDegradation {
         pencil = new Pencil(100, 100, 100);
         assertEquals(100, pencil.getEraserDurability());
     }
+    @Test
+    public void pencilEraserShouldDegradeByOneWhenErasingCharacter() {
+        pencil = new Pencil(100, 100, 100);
+        pencil.setEraserDurability(1);
+        paper.setText("ABC");
+        pencil.erase(paper, "C");
+        assertEquals(0, pencil.getEraserDurability());
+    }
+    
 }

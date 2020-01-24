@@ -88,6 +88,7 @@ public class Pencil {
 
 		if (index > 0){
 			newString = newString.substring(0, index) + StringUtils.repeat(" ",string.length()) + newString.substring(index + string.length(), newString.length());
+			eraserDurability -= string.length();
 		}
 		paper.setText(newString);
 	}
