@@ -19,4 +19,10 @@ public class TestPencil {
 		pencil.write(paper, "test");
 		assertEquals(paper.getText(), "test");
 	}
+	@Test
+	public void pencilShouldAppendTextToPaper(){
+		paper.setText("existing text ");
+		pencil.write(paper, "new text");
+		assertEquals(paper.getText(), "existing text new text");
+	}
 }

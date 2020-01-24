@@ -7,7 +7,7 @@ public class Pencil {
 	}
 
 	public void write(Paper paper, String text) {
-		paper.setText(text);
+		paper.setText(paper.getText() + text);
 	}
 
 }
