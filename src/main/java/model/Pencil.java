@@ -76,6 +76,12 @@ public class Pencil {
 	}
 
 	public void erase(Paper paper, String string) {
-		paper.setText(paper.getText().replace(string, StringUtils.repeat(" ", string.length())));
+		int index = paper.getText().lastIndexOf(string);
+		String newString = new String(paper.getText());
+
+		if (index > 0){
+			newString = newString.substring(0, index) + StringUtils.repeat(" ",string.length()) + newString.substring(index + string.length(), newString.length());
+		}
+		paper.setText(newString);
 	}
 }

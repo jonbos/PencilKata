@@ -24,4 +24,14 @@ public class TestPencilErasing {
         pencil.erase(paper, "B");
         assertEquals("A C", paper.getText());
     }
+
+	@Test
+	public void pencilShouldEraseOnlyLastOccurenceOfWord() {
+		pencil = new Pencil(100);
+        paper.setText("How much wood would a woodchuck chuck if a woodchuck would chuck wood");
+        pencil.erase(paper, "chuck");
+        assertEquals("How much wood would a woodchuck chuck if a woodchuck would       wood", paper.getText());
+        pencil.erase(paper, "chuck");
+        assertEquals("How much wood would a woodchuck chuck if a wood      would       wood", paper.getText());
+    }
 }
