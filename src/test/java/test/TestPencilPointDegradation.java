@@ -56,4 +56,10 @@ public class TestPencilPointDegradation {
 		pencil.write(paper, " 	");
 		assertEquals(1, pencil.getPointDurability());
 	}
+	@Test
+	public void pencilShouldWriteWhitespaceWhenDullInTheMiddleOfWriteOperation(){
+		pencil.setPointDurability(4);
+		pencil.write(paper, "Test");
+		assertEquals("Tes ", paper.getText());
+	}
 }
