@@ -4,4 +4,13 @@
   <artifactId>PencilKata</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>PencilKata</name>
+
+
+  <dependencies>
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>20030203.000129</version>
+    </dependency>
+  </dependencies>
 </project>
