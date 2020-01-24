@@ -8,11 +8,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class TestPencilWriting {
-	Pencil pencil = new Pencil();
-	Paper paper = new Paper();
+	private Pencil pencil;
+	private Paper paper;
 
 	@Before
 	public void setUp() throws Exception {
+		pencil = new Pencil(100);
+		paper = new Paper();
 	}
 
 	@Test
