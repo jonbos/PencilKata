@@ -19,16 +19,20 @@ public class Pencil {
 	}
 
 	public void write(Paper paper, String text) {
-		if (pointDurability<=0){
-			paper.setText(StringUtils.repeat(" ", text.length()));
+		for (char c: text.toCharArray()){
+			writeChar(paper, c);
 		}
-		else{
-			if (Character.isUpperCase(text.charAt(0))){
-				pointDurability-=2;
-			} else {
-				pointDurability -= 1;
-			}
-			paper.setText(paper.getText() + text);
+	}
+	private void writeChar(Paper paper, char c){
+		if (this.pointDurability<=0){
+			paper.setText(paper.getText() + ' ');
+		} else {
+			paper.setText(paper.getText() + c);
+		}
+		if (Character.isUpperCase(c)){
+			pointDurability-=2;
+		} else {
+			pointDurability -= 1;
 		}
 	}
 }
