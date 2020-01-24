@@ -29,12 +29,16 @@ public class Pencil {
 		} else {
 			paper.setText(paper.getText() + c);
 		}
-		if (Character.isUpperCase(c)){
-			pointDurability-=2;
+
+		pointDurability -= calculateWriteCost(c);
+	}
+	private int calculateWriteCost(char c){
+		if (Character.isUpperCase(c) || Character.isDigit(c)){
+			return 2;
 		} else if (Character.isWhitespace(c)) {
-			return;
+			return 0;
 		} else {
-			pointDurability -= 1;
+			return 1;
 		}
 	}
 }
