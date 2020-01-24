@@ -16,8 +16,8 @@ public class TestPencilSharpening {
 	public void setUp() throws Exception {
 		 pencil = new Pencil();
 		 paper = new Paper();
-	}
-
+    }
+    
 	@Test
 	public void pencilCanBeCreatedWithLength() {
 		pencil = new Pencil(100, 10);
