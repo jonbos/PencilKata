@@ -1,18 +1,25 @@
 package test;
-
+import model.Paper;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
 public class TestPaper {
+	Paper paper = new Paper();
 
 	@Before
 	public void setUp() throws Exception {
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testPaperIsCreatedWithBlankTextField() {
+		assertEquals(paper.getText(), "");
+	}
+
+	@Test
+	public void testPaperShouldSetTextField(){
+		paper.setText("test");
+		assertEquals(paper.getText(), "test");
 	}
 }

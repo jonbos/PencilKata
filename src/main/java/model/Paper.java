@@ -1,9 +1,15 @@
 package model;
 
 public class Paper {
-
+	private String text;
 	public Paper() {
-		// TODO Auto-generated constructor stub
+		this.text="";
 	}
 
+	public String getText() {
+		return this.text;
+	}
+	public void setText(String text){
+		this.text=text;
+	}
 }
