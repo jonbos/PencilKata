@@ -6,12 +6,19 @@ public class Pencil {
 	private int pointDurability;
 	private int initialDurability;
 	private int length;
+	private int eraserDurability;
 
 	public Pencil() {
 		this.pointDurability = 0;
 		this.initialDurability = 0;
 
 		this.length = 0;
+	}
+	public Pencil(int pointDurability, int length, int eraserDurability) {
+		this.pointDurability = 0;
+		this.length = length;
+		this.initialDurability = pointDurability;
+		this.eraserDurability = eraserDurability;
 	}
 
 	public Pencil(int pointDurability, int length) {
@@ -83,5 +90,12 @@ public class Pencil {
 			newString = newString.substring(0, index) + StringUtils.repeat(" ",string.length()) + newString.substring(index + string.length(), newString.length());
 		}
 		paper.setText(newString);
+	}
+
+	public int getEraserDurability() {
+		return this.eraserDurability;
+	}
+	public void setEraserDurability(int eraserDurability) {
+		this.eraserDurability = eraserDurability;
 	}
 }
