@@ -22,5 +22,12 @@ public class TestPencilSharpening {
 	public void pencilCanBeCreatedWithLength() {
 		pencil = new Pencil(100, 10);
 		assertEquals(pencil.getLength(), 10);
+    }
+    @Test
+	public void sharpeningAPencilRestoresItsPointDurability() {
+        pencil = new Pencil(100, 10);
+        pencil.setPointDurability(0);
+        pencil.sharpen();
+		assertEquals(pencil.getPointDurability(), 100);
 	}
 }

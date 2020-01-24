@@ -2,18 +2,23 @@ package model;
 
 public class Pencil {
 	private int pointDurability;
+	private int initialDurability;
 	private int length;
 
 	public Pencil(){
 		this.pointDurability=0;
+		this.initialDurability=0;
+
 		this.length=0;
 	}
 	public Pencil(int pointDurability, int length) {
 		this.pointDurability=0;
 		this.length=length;
+		this.initialDurability=pointDurability;
 	}
 	public Pencil(int pointDurability) {
 		this.pointDurability=pointDurability;
+		this.initialDurability=pointDurability;
 	}
 
 	public int getPointDurability() {
@@ -53,5 +58,8 @@ public class Pencil {
 
 	public void setLength(int length) {
 		this.length = length;
+	}
+	public void sharpen() {
+		pointDurability=initialDurability;
 	}
 }
