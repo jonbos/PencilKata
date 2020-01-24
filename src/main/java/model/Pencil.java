@@ -1,11 +1,16 @@
 package model;
-import org.apache.commons.lang.StringUtils;
 
 public class Pencil {
 	private int pointDurability;
+	private int length;
 
-	public Pencil() {
+	public Pencil(){
 		this.pointDurability=0;
+		this.length=0;
+	}
+	public Pencil(int pointDurability, int length) {
+		this.pointDurability=0;
+		this.length=length;
 	}
 	public Pencil(int pointDurability) {
 		this.pointDurability=pointDurability;
@@ -40,5 +45,13 @@ public class Pencil {
 		} else {
 			return 1;
 		}
+	}
+
+	public int getLength() {
+		return length;
+	}
+
+	public void setLength(int length) {
+		this.length = length;
 	}
 }
