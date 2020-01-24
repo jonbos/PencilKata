@@ -29,5 +29,19 @@ public class TestPencilSharpening {
         pencil.setPointDurability(0);
         pencil.sharpen();
 		assertEquals(pencil.getPointDurability(), 100);
-	}
+    }
+    @Test
+	public void pencilShouldDegradeInLengthByOneWhenSharpened() {
+		pencil = new Pencil(100, 10);
+        pencil.sharpen();
+		assertEquals(9,pencil.getLength());
+        
+    }
+    @Test
+    public void pencilShouldNotRegainDurabilityWhenSharpeningAtLengthZero() {
+        pencil.setPointDurability(0);
+        pencil.setLength(0);
+        pencil.sharpen();
+        assertEquals(0, pencil.getPointDurability());
+    }
 }

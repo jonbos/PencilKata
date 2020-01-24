@@ -60,6 +60,10 @@ public class Pencil {
 		this.length = length;
 	}
 	public void sharpen() {
+		if (getLength() == 0){
+			return;
+		}
 		pointDurability=initialDurability;
+		length-=1;
 	}
 }
