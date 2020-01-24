@@ -1,9 +1,17 @@
 package model;
 
 public class Pencil {
+	private int pointDurability;
 
 	public Pencil() {
-		// TODO Auto-generated constructor stub
+		this.pointDurability=0;
+	}
+	public Pencil(int pointDurability) {
+		this.pointDurability=pointDurability;
+	}
+
+	public int getPointDurability() {
+		return this.pointDurability;
 	}
 
 	public void write(Paper paper, String text) {
