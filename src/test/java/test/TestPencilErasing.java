@@ -20,6 +20,7 @@ public class TestPencilErasing {
     @Test
     public void pencilShouldReplaceTextWithSpaces() {
         pencil = new Pencil(10);
+        pencil.setEraserDurability(100);
         paper.setText("ABC");
         pencil.erase(paper, "B");
         assertEquals("A C", paper.getText());
@@ -27,7 +28,8 @@ public class TestPencilErasing {
 
 	@Test
 	public void pencilShouldEraseOnlyLastOccurenceOfWord() {
-		pencil = new Pencil(100);
+        pencil = new Pencil(100);
+        pencil.setEraserDurability(100);
         paper.setText("How much wood would a woodchuck chuck if a woodchuck would chuck wood");
         pencil.erase(paper, "chuck");
         assertEquals("How much wood would a woodchuck chuck if a woodchuck would       wood", paper.getText());
