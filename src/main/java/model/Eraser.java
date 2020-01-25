@@ -1,4 +1,7 @@
 package model;
+
+import org.apache.commons.lang.StringUtils;
+
 public class Eraser{
     private int durability;
     public Eraser(int durability){
@@ -15,7 +18,7 @@ public class Eraser{
             return;
         }
     
-        for (int i=string.length(); i>=1; i--){
+        for (int i=string.length()-1; i>=0; i--){
             eraseChar(paper, index+i);
         }
     }
@@ -23,9 +26,10 @@ public class Eraser{
     private void eraseChar(Paper paper, int index){
         if (durability > 0){
             String oldText = paper.getText();
-            String newText = oldText.substring(0, index-1) + " "+oldText.substring(index);
+            String newText = oldText.substring(0, index) + " "+oldText.substring(index+1);
             durability-=1;
-            paper.setText(newText);	
+            paper.setText(newText);
+            paper.setIndexLastErased(index);	
         }
     }
 
