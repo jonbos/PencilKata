@@ -1,39 +1,36 @@
 package test;
 
-import model.Pencil;
 import model.Paper;
+import model.Eraser;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-public class TestPencilErasing {
-	private Pencil pencil; 
+public class TestEraserErasing {
 	private Paper paper; 
-
+    private Eraser eraser;
 	@Before
 	public void setUp() throws Exception {
-		 pencil = new Pencil();
-		 paper = new Paper();
+         paper = new Paper();
+         eraser = new Eraser();
     }
     
     @Test
-    public void pencilShouldReplaceTextWithSpaces() {
-        pencil = new Pencil(10);
-        pencil.setEraserDurability(100);
+    public void eraserShouldReplaceTextWithSpaces() {
+        eraser.setDurability(1);
         paper.setText("ABC");
-        pencil.erase(paper, "B");
+        eraser.erase(paper, "B");
         assertEquals("A C", paper.getText());
     }
 
 	@Test
-	public void pencilShouldEraseOnlyLastOccurenceOfWord() {
-        pencil = new Pencil(100);
-        pencil.setEraserDurability(100);
+	public void eraserShouldEraseOnlyLastOccurenceOfWord() {
+        eraser.setDurability(100);
         paper.setText("How much wood would a woodchuck chuck if a woodchuck would chuck wood");
-        pencil.erase(paper, "chuck");
+        eraser.erase(paper, "chuck");
         assertEquals("How much wood would a woodchuck chuck if a woodchuck would       wood", paper.getText());
-        pencil.erase(paper, "chuck");
+        eraser.erase(paper, "chuck");
         assertEquals("How much wood would a woodchuck chuck if a wood      would       wood", paper.getText());
     }
 }

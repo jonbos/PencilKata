@@ -1,49 +1,46 @@
 package test;
 
-import model.Pencil;
 import model.Paper;
+import model.Eraser;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
 public class TestEraserDegradation {
-	private Pencil pencil; 
-	private Paper paper; 
+    private Paper paper; 
+    private Eraser eraser;
 
 	@Before
 	public void setUp() throws Exception {
-		 pencil = new Pencil();
-		 paper = new Paper();
+        eraser = new Eraser();
+		paper = new Paper();
     }
     
     @Test
-    public void pencilShouldBeCreatedWithValueForEraserDurability() {
-        pencil = new Pencil(100, 100, 100);
-        assertEquals(100, pencil.getEraserDurability());
+    public void eraserShouldBeCreatedWithValueForEraserDurability() {
+        Eraser eraser = new Eraser(100);
+        assertEquals(100, eraser.getDurability());
     }
     @Test
     public void pencilEraserShouldDegradeByOneWhenErasingCharacter() {
-        pencil = new Pencil(100, 100, 100);
-        pencil.setEraserDurability(1);
+        eraser.setDurability(1);
         paper.setText("ABC");
-        pencil.erase(paper, "C");
-        assertEquals(0, pencil.getEraserDurability());
+        eraser.erase(paper, "C");
+        assertEquals(0, eraser.getDurability());
     }
     @Test
     public void pencilShouldNotEraseIfDurabilityIsZero() {
-        pencil = new Pencil(100, 100, 100);
-        pencil.setEraserDurability(0);
+        eraser.setDurability(0);
         paper.setText("ABC");
-        pencil.erase(paper, "C");
+        eraser.erase(paper, "C");
         assertEquals("ABC", paper.getText());
     }
     @Test
     public void pencilShouldStopErasingRightToLeftWhenDurabilityIsZero() {
-        pencil = new Pencil(100, 100, 100);
-        pencil.setEraserDurability(3);
+        eraser.setDurability(3);
         paper.setText("Buffalo Bill");
-        pencil.erase(paper, "Bill");
+        eraser.erase(paper, "Bill");
         assertEquals("Buffalo B   ", paper.getText());
     }
 }

@@ -1,24 +1,21 @@
 package model;
 
-import org.apache.commons.lang.StringUtils;
-
 public class Pencil {
 	private int pointDurability;
 	private int initialDurability;
 	private int length;
-	private int eraserDurability;
-
+	private Eraser eraser;
 	public Pencil() {
 		this.pointDurability = 0;
 		this.initialDurability = 0;
-
 		this.length = 0;
+		this.eraser=null;
 	}
-	public Pencil(int pointDurability, int length, int eraserDurability) {
+	public Pencil(int pointDurability, int length, Eraser eraser) {
 		this.pointDurability = 0;
 		this.length = length;
 		this.initialDurability = pointDurability;
-		this.eraserDurability = eraserDurability;
+		this.eraser = eraser;
 	}
 
 	public Pencil(int pointDurability, int length) {
@@ -83,30 +80,6 @@ public class Pencil {
 	}
 
 	public void erase(Paper paper, String string) {
-		int index = paper.getText().lastIndexOf(string);
-		
-		if (index < 0){
-			return;
-		}
-
-		for (int i=string.length(); i>=1; i--){
-			eraseChar(paper, index+i);
-		}
-	}
-
-	private void eraseChar(Paper paper, int index){
-		if (eraserDurability > 0){
-			String oldText = paper.getText();
-			String newText = oldText.substring(0, index-1) + " "+oldText.substring(index);
-			eraserDurability-=1;
-			paper.setText(newText);	
-		}
-	}
-
-	public int getEraserDurability() {
-		return this.eraserDurability;
-	}
-	public void setEraserDurability(int eraserDurability) {
-		this.eraserDurability = eraserDurability;
+		this.eraser.erase(paper, string);
 	}
 }
