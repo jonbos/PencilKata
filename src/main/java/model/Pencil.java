@@ -39,17 +39,16 @@ public class Pencil {
 
 	public void write(Paper paper, String text) {
 		for (char c : text.toCharArray()) {
-			writeChar(paper, c);
+			writeChar(paper, c, paper.getText().length());
 		}
 	}
 
-	private void writeChar(Paper paper, char c) {
+	private void writeChar(Paper paper, char c, int index) {
 		if (this.pointDurability <= 0) {
 			paper.setText(paper.getText() + ' ');
 		} else {
-			paper.setText(paper.getText() + c);
+			paper.setText(paper.getText().substring(0, index) + c + paper.getText().substring(index));
 		}
-
 		pointDurability -= calculateWriteCost(c);
 	}
 
