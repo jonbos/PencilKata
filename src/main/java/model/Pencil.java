@@ -95,10 +95,12 @@ public class Pencil {
 	}
 
 	private void eraseChar(Paper paper, int index){
-		String oldText = paper.getText();
-		String newText = oldText.substring(0, index-1) + " "+oldText.substring(index);
-		eraserDurability-=1;
-		paper.setText(newText);
+		if (eraserDurability > 0){
+			String oldText = paper.getText();
+			String newText = oldText.substring(0, index-1) + " "+oldText.substring(index);
+			eraserDurability-=1;
+			paper.setText(newText);	
+		}
 	}
 
 	public int getEraserDurability() {

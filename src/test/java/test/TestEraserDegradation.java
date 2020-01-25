@@ -30,5 +30,20 @@ public class TestEraserDegradation {
         pencil.erase(paper, "C");
         assertEquals(0, pencil.getEraserDurability());
     }
-    
+    @Test
+    public void pencilShouldNotEraseIfDurabilityIsZero() {
+        pencil = new Pencil(100, 100, 100);
+        pencil.setEraserDurability(0);
+        paper.setText("ABC");
+        pencil.erase(paper, "C");
+        assertEquals("ABC", paper.getText());
+    }
+    @Test
+    public void pencilShouldStopErasingRightToLeftWhenDurabilityIsZero() {
+        pencil = new Pencil(100, 100, 100);
+        pencil.setEraserDurability(3);
+        paper.setText("Buffalo Bill");
+        pencil.erase(paper, "Bill");
+        assertEquals("Buffalo B   ", paper.getText());
+    }
 }
