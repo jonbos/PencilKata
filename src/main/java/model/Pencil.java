@@ -105,6 +105,7 @@ public class Pencil {
 
 	private boolean isCollision(Paper paper, int index) {
 		try {
+<<<<<<< HEAD
 			return !(index > paper.getText().length()) && !(Character.isWhitespace(paper.getText().charAt(index)));
 		} catch (StringIndexOutOfBoundsException e){
 			return false;
