@@ -14,16 +14,10 @@ public class TestPencilEditing {
 	private Paper paper;
 
 	@Before
-	public void setUp() throws Exception {
+	public void setUp()  {
 		pencil = new Pencil(100, 100, new Eraser(100));
 		paper = new Paper();
 	}
 
-	@Test
-	public void eraserShouldSetLastErasedPropertyOnPaper() {
-        paper.setText("ABC");
-        pencil.erase(paper, "B");
-		assertEquals(1, paper.getIndexLastErased());
-	}
 }
 

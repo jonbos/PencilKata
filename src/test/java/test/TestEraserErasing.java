@@ -11,7 +11,7 @@ public class TestEraserErasing {
 	private Paper paper; 
     private Eraser eraser;
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() {
          paper = new Paper();
          eraser = new Eraser();
     }
@@ -33,4 +33,11 @@ public class TestEraserErasing {
         eraser.erase(paper, "chuck");
         assertEquals("How much wood would a woodchuck chuck if a wood      would       wood", paper.getText());
     }
+    @Test
+    public void eraserShouldSetLastErasedPropertyOnPaper() {
+        paper.setText("ABC");
+        eraser.erase(paper, "B");
+        assertEquals(1, paper.getIndexLastErased());
+    }
+
 }
