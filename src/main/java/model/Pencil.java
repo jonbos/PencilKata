@@ -5,12 +5,14 @@ public class Pencil {
 	private int initialDurability;
 	private int length;
 	private Eraser eraser;
+
 	public Pencil() {
 		this.pointDurability = 0;
 		this.initialDurability = 0;
 		this.length = 0;
-		this.eraser=null;
+		this.eraser = null;
 	}
+
 	public Pencil(int pointDurability, int length, Eraser eraser) {
 		this.pointDurability = pointDurability;
 		this.length = length;
@@ -46,10 +48,10 @@ public class Pencil {
 	private void writeChar(Paper paper, char c, int index) {
 		String text = paper.getText();
 		StringBuilder sb = new StringBuilder(text);
-		if (isCollision(paper, index)) c='@';
-		if (this.pointDurability <= 0 ||  calculateWriteCost(c) > this.pointDurability) c = ' ';
+		if (isCollision(paper, index)) c = '@';
+		if (this.pointDurability <= 0 || calculateWriteCost(c) > this.pointDurability) c = ' ';
 
-		if (index >= text.length()){
+		if (index >= text.length()) {
 			sb.append(c);
 		} else {
 			sb.setCharAt(index, c);
@@ -91,16 +93,17 @@ public class Pencil {
 
 	public void edit(Paper paper, String text) {
 		int index = paper.getIndexLastErased();
-		if (index < 0){
+		if (index < 0) {
 			write(paper, text);
 			return;
 		}
-		for (char c:text.toCharArray()){
+		for (char c : text.toCharArray()) {
 			writeChar(paper, c, index);
-			index+=1;
+			index += 1;
 		}
 	}
-	private boolean isCollision(Paper paper, int index){
+
+	private boolean isCollision(Paper paper, int index) {
 		return !(index > paper.getText().length()) && !(Character.isWhitespace(paper.getText().charAt(index)));
 	}
 }

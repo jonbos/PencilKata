@@ -1,25 +1,27 @@
 package test;
-import model.Paper;
-import static org.junit.Assert.*;
 
+import model.Paper;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 public class TestPaperCreation {
-	Paper paper = new Paper();
+    Paper paper;
 
-	@Before
-	public void setUp() throws Exception {
-	}
+    @Before
+    public void setUp() {
+        paper = new Paper();
+    }
 
-	@Test
-	public void testPaperIsCreatedWithBlankTextField() {
-		assertEquals(paper.getText(), "");
-	}
+    @Test
+    public void testPaperIsCreatedWithBlankTextField() {
+        assertEquals(paper.getText(), "");
+    }
 
-	@Test
-	public void testPaperShouldSetTextField(){
-		paper.setText("test");
-		assertEquals(paper.getText(), "test");
-	}
+    @Test
+    public void testPaperShouldSetTextField() {
+        paper.setText("test");
+        assertEquals(paper.getText(), "test");
+    }
 }

@@ -1,21 +1,22 @@
 package test;
 
-import model.Paper;
 import model.Eraser;
-import static org.junit.Assert.*;
-
+import model.Paper;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 public class TestEraserErasing {
-	private Paper paper; 
+    private Paper paper;
     private Eraser eraser;
-	@Before
-	public void setUp() {
-         paper = new Paper();
-         eraser = new Eraser();
+
+    @Before
+    public void setUp() {
+        paper = new Paper();
+        eraser = new Eraser();
     }
-    
+
     @Test
     public void eraserShouldReplaceTextWithSpaces() {
         eraser.setDurability(1);
@@ -24,8 +25,8 @@ public class TestEraserErasing {
         assertEquals("A C", paper.getText());
     }
 
-	@Test
-	public void eraserShouldEraseOnlyLastOccurenceOfWord() {
+    @Test
+    public void eraserShouldEraseOnlyLastOccurenceOfWord() {
         eraser.setDurability(100);
         paper.setText("How much wood would a woodchuck chuck if a woodchuck would chuck wood");
         eraser.erase(paper, "chuck");
@@ -33,6 +34,7 @@ public class TestEraserErasing {
         eraser.erase(paper, "chuck");
         assertEquals("How much wood would a woodchuck chuck if a wood      would       wood", paper.getText());
     }
+
     @Test
     public void eraserShouldSetLastErasedPropertyOnPaper() {
         paper.setText("ABC");

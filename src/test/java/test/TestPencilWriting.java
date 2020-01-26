@@ -1,18 +1,18 @@
 package test;
 
-import model.Pencil;
 import model.Paper;
-import static org.junit.Assert.*;
-
+import model.Pencil;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class TestPencilWriting {
 	private Pencil pencil;
 	private Paper paper;
 
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() {
 		pencil = new Pencil(100);
 		paper = new Paper();
 	}

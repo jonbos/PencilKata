@@ -1,39 +1,41 @@
 package test;
 
-import static org.junit.Assert.assertEquals;
-
+import model.Pencil;
 import org.junit.Before;
 import org.junit.Test;
 
-import model.Pencil;
+import static org.junit.Assert.assertEquals;
 
 public class TestPencilSharpening {
-	private Pencil pencil; 
+    private Pencil pencil;
 
-	@Before
-	public void setUp() throws Exception {
-		 pencil = new Pencil();
+    @Before
+    public void setUp() {
+        pencil = new Pencil();
     }
-    
-	@Test
-	public void pencilCanBeCreatedWithLength() {
-		pencil = new Pencil(100, 10);
-		assertEquals(pencil.getLength(), 10);
-    }
+
     @Test
-	public void sharpeningAPencilRestoresItsPointDurability() {
+    public void pencilCanBeCreatedWithLength() {
+        pencil = new Pencil(100, 10);
+        assertEquals(pencil.getLength(), 10);
+    }
+
+    @Test
+    public void sharpeningAPencilRestoresItsPointDurability() {
         pencil = new Pencil(100, 10);
         pencil.setPointDurability(0);
         pencil.sharpen();
-		assertEquals(pencil.getPointDurability(), 100);
+        assertEquals(pencil.getPointDurability(), 100);
     }
+
     @Test
-	public void pencilShouldDegradeInLengthByOneWhenSharpened() {
-		pencil = new Pencil(100, 10);
+    public void pencilShouldDegradeInLengthByOneWhenSharpened() {
+        pencil = new Pencil(100, 10);
         pencil.sharpen();
-		assertEquals(9,pencil.getLength());
-        
+        assertEquals(9, pencil.getLength());
+
     }
+
     @Test
     public void pencilShouldNotRegainDurabilityWhenSharpeningAtLengthZero() {
         pencil.setPointDurability(0);
