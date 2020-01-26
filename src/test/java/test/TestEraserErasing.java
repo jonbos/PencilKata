@@ -38,6 +38,7 @@ public class TestEraserErasing {
     @Test
     public void eraserShouldSetLastErasedPropertyOnPaper() {
         paper.setText("ABC");
+        eraser.setDurability(1);
         eraser.erase(paper, "B");
         assertEquals(1, paper.getIndexLastErased());
     }
