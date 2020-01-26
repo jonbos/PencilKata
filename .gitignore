@@ -6,3 +6,4 @@ target/
 /PencilKata.iml
 /.project
 /.classpath
+bin/
