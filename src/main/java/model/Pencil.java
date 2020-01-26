@@ -12,7 +12,7 @@ public class Pencil {
 		this.eraser=null;
 	}
 	public Pencil(int pointDurability, int length, Eraser eraser) {
-		this.pointDurability = 0;
+		this.pointDurability = pointDurability;
 		this.length = length;
 		this.initialDurability = pointDurability;
 		this.eraser = eraser;
@@ -87,5 +87,17 @@ public class Pencil {
 
 	public void erase(Paper paper, String string) {
 		this.eraser.erase(paper, string);
+	}
+
+	public void edit(Paper paper, String text) {
+		int index = paper.getIndexLastErased();
+		if (index < 0){
+			write(paper, text);
+			return;
+		}
+		for (char c:text.toCharArray()){
+			writeChar(paper, c, index);
+			index+=1;
+		}
 	}
 }
