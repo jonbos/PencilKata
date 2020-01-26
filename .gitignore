@@ -3,3 +3,9 @@ target/
 .project
 .classpath
 .vscode
+/.idea/
+/.settings/
+/.vscode/
+/PencilKata.iml
+/.project
+/.classpath
