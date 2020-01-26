@@ -26,5 +26,13 @@ public class TestPencilEditing {
 		pencil.edit(paper, "onion");
 		assertEquals("An onion a day keeps the doctor away", paper.getText());
 	}
+	@Test
+	public void pencilShouldWriteSpecialCharWhenCollisionHappensInEdit(){
+		paper.setText("An apple a day keeps the doctor away");
+		pencil.erase(paper, "apple");
+		pencil.edit(paper, "artichoke");
+		assertEquals("An artich@k@ay keeps the doctor away", paper.getText());
+
+	}
 }
 

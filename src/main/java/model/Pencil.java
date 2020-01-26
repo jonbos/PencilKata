@@ -46,7 +46,7 @@ public class Pencil {
 	private void writeChar(Paper paper, char c, int index) {
 		String text = paper.getText();
 		StringBuilder sb = new StringBuilder(text);
-
+		if (isCollision(paper, index)) c='@';
 		if (this.pointDurability <= 0 ||  calculateWriteCost(c) > this.pointDurability) c = ' ';
 
 		if (index >= text.length()){
@@ -99,5 +99,8 @@ public class Pencil {
 			writeChar(paper, c, index);
 			index+=1;
 		}
+	}
+	private boolean isCollision(Paper paper, int index){
+		return !(index > paper.getText().length()) && !(Character.isWhitespace(paper.getText().charAt(index)));
 	}
 }
