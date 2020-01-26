@@ -44,11 +44,18 @@ public class Pencil {
 	}
 
 	private void writeChar(Paper paper, char c, int index) {
-		if (this.pointDurability <= 0) {
-			paper.setText(paper.getText() + ' ');
+		String text = paper.getText();
+		StringBuilder sb = new StringBuilder(text);
+
+		if (this.pointDurability <= 0 ||  calculateWriteCost(c) > this.pointDurability) c = ' ';
+
+		if (index >= text.length()){
+			sb.append(c);
 		} else {
-			paper.setText(paper.getText().substring(0, index) + c + paper.getText().substring(index));
+			sb.setCharAt(index, c);
 		}
+
+		paper.setText(sb.toString());
 		pointDurability -= calculateWriteCost(c);
 	}
 
