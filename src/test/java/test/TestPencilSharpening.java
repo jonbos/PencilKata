@@ -1,13 +1,13 @@
-package test;
+package test.java.test;
 
-import model.Pencil;
+import main.java.model.*;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 public class TestPencilSharpening {
-    private Pencil pencil;
+    private main.java.model.Pencil pencil;
 
     @Before
     public void setUp() {

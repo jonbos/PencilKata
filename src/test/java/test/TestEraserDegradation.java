@@ -1,7 +1,6 @@
-package test;
+package test.java.test;
 
-import model.Eraser;
-import model.Paper;
+import main.java.model.*;
 import org.junit.Before;
 import org.junit.Test;
 
