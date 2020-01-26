@@ -1,7 +1,8 @@
-package test;
+package test.java.test;
 
-import model.Eraser;
-import model.Paper;
+import main.java.model.Eraser;
+import main.java.model.Paper;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -38,6 +39,7 @@ public class TestEraserErasing {
     @Test
     public void eraserShouldSetLastErasedPropertyOnPaper() {
         paper.setText("ABC");
+        eraser.setDurability(1);
         eraser.erase(paper, "B");
         assertEquals(1, paper.getIndexLastErased());
     }

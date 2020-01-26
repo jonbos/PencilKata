@@ -1,4 +1,4 @@
-package model;
+package main.java.model;
 
 public class Pencil {
 	private int pointDurability;
@@ -104,6 +104,10 @@ public class Pencil {
 	}
 
 	private boolean isCollision(Paper paper, int index) {
-		return !(index > paper.getText().length()) && !(Character.isWhitespace(paper.getText().charAt(index)));
+		try {
+			return !(index > paper.getText().length()) && !(Character.isWhitespace(paper.getText().charAt(index)));
+		} catch (StringIndexOutOfBoundsException e){
+			return false;
+		}
 	}
 }
