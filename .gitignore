@@ -5,3 +5,4 @@ target/
 /.vscode/
 /PencilKata.iml
 bin/
+*DS_STORE*
