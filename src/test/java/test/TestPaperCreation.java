@@ -1,6 +1,6 @@
-package test.java.test;
+package test;
 
-import main.java.model.Paper;
+import model.Paper;
 import org.junit.Before;
 import org.junit.Test;
 
